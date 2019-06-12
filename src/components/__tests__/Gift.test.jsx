@@ -39,4 +39,14 @@ describe("Gift", () => {
       expect(gift.state().present).toEqual(present);
     });
   });
+
+  describe("when clicking the `remove gift button`", () => {
+    beforeEach(() => {
+      gift.find(".btn-remove").simulate("click");
+    });
+
+    it("calls the remove gift cb", () => {
+      expect(mockRemove).toHaveBeenCalledWith(id);
+    });
+  });
 });
